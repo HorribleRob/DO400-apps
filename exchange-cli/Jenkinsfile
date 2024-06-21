@@ -1,23 +1,41 @@
 pipeline {
-    agent {
-        label 'nodejs'
-    }
 
-    stages {
-        stage ('Install Dependencies') {
-            steps {
-                dir ('exchenge-cli') {
-                    sh "npm install"
-                }
-            }
-        }
+     agent {
 
-        stage ('Build') {
-            steps {
-                dir ('exchange-cli') {
-                    sh "npm run build"
+          label 'nodejs'
+
+     }
+
+      stages {
+
+           stage ('Install Dependencies') {
+
+                steps {
+
+                     dir ('exchange-cli') {
+
+                          sh "npm install"
+
+                     }
+
                 }
+
+           }
+
+            stage ('Build') {
+
+                 steps {
+
+                      dir ('exchange-cli') {
+
+                           sh "npm run build"
+
+                      }
+
+                 }
+
             }
-        }
-    }
+
+      }
+
 }
